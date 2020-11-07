@@ -8,10 +8,24 @@ def findValue(values):
     else:
         v = max(values[index:])
         return v-minValue
+    
 
 
 def findMaxProfit(numOfPredictedDay, predictedSharePrices):
-    return findValue(predictedSharePrices)
+    cost = []
+    valu = list(predictedSharePrices)
+    predictedSharePrices = list(predictedSharePrices)
+    valu.sort()
+    c = True
+    for i in valu:
+        if c:
+            cost.append(findValue(predictedSharePrices))
+            predictedSharePrices.remove(i)
+            c=False
+        elif len(predictedSharePrices)>2:
+            predictedSharePrices.remove(i)
+            cost.append(findValue(predictedSharePrices))
+    return max(cost)
 
 
 def main():
