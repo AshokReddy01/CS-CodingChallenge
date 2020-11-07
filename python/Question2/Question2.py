@@ -1,7 +1,20 @@
 # You may change this function parameters
 def findMaxProfit(numOfPredictedTimes, predictedSharePrices):
-    # Participants code will be here
-    return -1
+    cost = []
+    try:
+        m = max(predictedSharePrices)
+        for i in range(numOfPredictedTimes):
+            if predictedSharePrices[i] == m:
+                pass
+            elif predictedSharePrices[i]<predictedSharePrices[i+1]:
+                cost.append(predictedSharePrices[i+1]-predictedSharePrices[i])
+
+        return sum(cost)
+    
+    except:
+        return sum(cost)
+
+
 
 def main():
     line = input().split()
