@@ -1,5 +1,25 @@
+
+def findValues(m,prices):
+    cost = []
+    try:
+        for i in range(len(prices)):
+            for j in range(i,len(prices)):
+                if (prices[j]-prices[i]) == m:
+                    cost.append (str(i+1)+' '+str(j+1))
+                    break
+        return cost[-1]
+    except :
+        return cost[-1]
+
+
 def find_min_days(prices, profit):
-    # Participants code will be here
+    data=[]
+    for i in profit:
+        data.append(findValues(i,prices))
+    for i in data:
+        print(i,end=', ')
+
+
     return ""
 
 n, d = map(int, input().split())
